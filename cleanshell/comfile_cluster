@@ -1,0 +1,1 @@
+cc *.c ./libft/basic/*.c ./libft/ft_printf/*.c ./libft/get_next_line/*.c -lreadline -L/Users/hyeondle/.brew/Cellar/readline/8.2.1/lib -I/Users/hyeondle/.brew/Cellar/readline/8.2.1/include
