@@ -6,7 +6,7 @@
 /*   By: Linsio <Linsio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 15:50:01 by hyeondle          #+#    #+#             */
-/*   Updated: 2023/03/22 12:07:17 by Linsio           ###   ########.fr       */
+/*   Updated: 2023/04/05 01:27:04 by Linsio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,6 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-
+int		ft_strcmp(const char *s1, const char *s2);
+char	*ft_strndup(const char *s, size_t n);
 #endif

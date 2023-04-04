@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+         #
+#    By: Linsio <Linsio@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/08 17:18:24 by hyeondle          #+#    #+#              #
-#    Updated: 2023/03/18 16:12:43 by hyeondle         ###   ########.fr        #
+#    Updated: 2023/04/05 01:43:25 by Linsio           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,8 +52,10 @@ SRCS	=	ft_atoi.c\
 			ft_substr.c\
 			ft_tolower.c\
 			ft_toupper.c\
+			ft_strcmp.c\
+			ft_strndup.c\
 
-OBJS	= ${SRCS:.c=.o}			
+OBJS	= ${SRCS:.c=.o}
 INCD	= ./
 
 GCC		= cc
