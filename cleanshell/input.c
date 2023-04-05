@@ -6,7 +6,7 @@
 /*   By: Linsio <Linsio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 13:07:03 by Linsio            #+#    #+#             */
-/*   Updated: 2023/03/30 15:52:06 by Linsio           ###   ########.fr       */
+/*   Updated: 2023/04/05 13:06:34 by Linsio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 //3. 명령어 배열과 인자배열로 구분하여 집어넣기
 
 #include "libft/basic/libft.h"
-#include "minishell.h"
+#include "./includes/minishell.h"
 #include <stddef.h>
 
 char	*single_quote(char *str)

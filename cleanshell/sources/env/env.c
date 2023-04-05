@@ -6,7 +6,7 @@
 /*   By: Linsio <Linsio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 10:59:29 by Linsio            #+#    #+#             */
-/*   Updated: 2023/04/05 12:52:52 by Linsio           ###   ########.fr       */
+/*   Updated: 2023/04/05 15:42:07 by Linsio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,18 +38,18 @@ char *get_env_key(char *str, int i)
 
 	k = i + 1;
 	j = 0;
-	while (str[k] != '$' || str[k] != '\0' || str[k] != '\"' || str[k] != ' ')
+	while (str[k] != '$' && str[k] != '\0' && str[k] != '\"' && str[k] != ' ')
 		k++;
 	key = (char *)malloc(sizeof(char) * (k - i));
 	if (!key)
 		return NULL;
 	while (i < k)
 	{
-		str[i + i] = key[j];
+		key[j] = str[i + 1];
 		i++;
 		j++;
 	}
-	key[j] = '\0';
+	key[j - 1] = '\0';
 	return key;
 }
 
@@ -61,7 +61,7 @@ int	get_third_size(char *str)
 	while (str[k] != '$')
 		k++;
 	k++;
-	while (str[k] != '$' || str[k] != '\0' || str[k] != '\"' || str[k] != ' ')
+	while (str[k] != '$' && str[k] != '\0' && str[k] != '\"' && str[k] != ' ')
 		k++;
 	return (k);
 }
@@ -74,7 +74,7 @@ char	*split_and_join(char *p_str, int i, char *value)
 	char	*str3;
 
 	j = 0;
-	str1 = (char *)malloc(sizeof(char) * i);
+	str1 = (char *)malloc(sizeof(char) * (i + 1));
 	str2 = (char *)malloc(sizeof(char) * (ft_strlen(value) + 1));
 	str3 = (char *)malloc(sizeof(char) * (ft_strlen(p_str) - get_third_size(p_str)) + 1);
 	while (j < i)
@@ -82,18 +82,21 @@ char	*split_and_join(char *p_str, int i, char *value)
 		str1[j] = p_str[j];
 		j++;
 	}
+	str1[j] = '\0';
 	j = 0;
 	while (value[j])
 	{
 		str2[j] = value[j];
 		j++;
 	}
+	str2[j] = '\0';
 	j = 0;
 	while (p_str[j + get_third_size(p_str)])
 	{
 		str3[j] = p_str[j + get_third_size(p_str)];
 		j++;
 	}
+	str3[j] = '\0';
 	str1 = ft_strjoin(str1, str2);
 	str1 = ft_strjoin(str1, str3);
 	return (str1);
@@ -105,26 +108,63 @@ char	*get_env_to_str(t_setting **set, char *str)
 	char	*key;
 	char	*value;
 	char	*j_str;
+	char	*tmp;
 
 	i = 0;
-	j_str = NULL;
-	while (str[i] != '\0')
+	j_str = str;
+	while (j_str[i])
 	{
-		if (str[i] == '\'')
+		if (j_str[i] == '\'')
 		{
-			while (str[++i] != '\'')
+			while (j_str[++i] != '\'')
 				i++;
 			i++;
 		}
-		if (str[i] == '$')
+		if (j_str[i] == '$')
 		{
-			key = get_env_key(str, i);
+			key = get_env_key(j_str, i);
 			value = get_env_value((*set)->env_list, key);
-			j_str = split_and_join(str, i, value);
-			free(str);
-			return (j_str);
+			if (!value)
+				value = "";
+			tmp = j_str;
+			j_str = split_and_join(j_str, i, value);
+			free(tmp);
+			free(key);
+			i = -1;
 		}
 		i++;
 	}
-	return (str);
+	return (j_str);
 }
+
+// char	*get_env_to_str(t_setting **set, char *str)
+// {
+// 	int 	i;
+// 	char	*key;
+// 	char	*value;
+// 	char	*j_str;
+
+// 	i = 0;
+// 	j_str = str;
+// 	while (j_str[i])
+// 	{
+// 		if (j_str[i] == '\'')
+// 		{
+// 			while (j_str[++i] != '\'')
+// 				i++;
+// 			i++;
+// 		}
+// 		if (j_str[i] == '$')
+// 		{
+// 			key = get_env_key(str, i);
+// 			value = get_env_value((*set)->env_list, key);
+// 			if (!value)
+// 				value = "";
+// 			j_str = split_and_join(str, i, value);
+// 			free(key);
+// 			i = -1;
+// 		}
+// 		i++;
+// 	}
+// 	return (j_str);
+// }

@@ -6,7 +6,7 @@
 /*   By: Linsio <Linsio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 01:27:39 by Linsio            #+#    #+#             */
-/*   Updated: 2023/04/05 12:59:34 by Linsio           ###   ########.fr       */
+/*   Updated: 2023/04/05 15:17:05 by Linsio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,8 @@ char *get_env_value(t_env_list *env, const char *key)
 {
     t_env_list *current = env;
 
+    if (!key)
+        return NULL;
     while (current)
     {
         if (ft_strcmp(current->env.key, key) == 0)
