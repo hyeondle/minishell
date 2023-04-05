@@ -6,11 +6,11 @@
 /*   By: Linsio <Linsio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 13:10:35 by Linsio            #+#    #+#             */
-/*   Updated: 2023/03/29 14:41:07 by Linsio           ###   ########.fr       */
+/*   Updated: 2023/04/05 13:03:23 by Linsio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "../includes/minishell.h"
 
 int	input_check(char *input)
 {

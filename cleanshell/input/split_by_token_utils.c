@@ -6,11 +6,11 @@
 /*   By: Linsio <Linsio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 13:16:35 by Linsio            #+#    #+#             */
-/*   Updated: 2023/03/29 14:41:08 by Linsio           ###   ########.fr       */
+/*   Updated: 2023/04/05 12:56:29 by Linsio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "../includes/minishell.h"
 
 int	token_check(char c)
 {

@@ -6,11 +6,11 @@
 /*   By: Linsio <Linsio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 13:13:56 by Linsio            #+#    #+#             */
-/*   Updated: 2023/03/29 14:41:08 by Linsio           ###   ########.fr       */
+/*   Updated: 2023/04/05 12:56:32 by Linsio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "../includes/minishell.h"
 
 int	split_case_index_check(char **str, int i, int k)
 {
@@ -58,8 +58,7 @@ char	**split_by_token(char **str)
 	int		i;
 	int		k;
 	int		c;
-//따옴표 안에있는 토큰이 따옴표 닫힌 후 나타나는 토큰에 의해 토큰화되어버림. 수정요망
-//ex) test"abc|de"|ab 하면 오류남
+
 	i = 0;
 	k = 0;
 	temp_2 = str;

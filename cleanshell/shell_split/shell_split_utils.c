@@ -6,11 +6,11 @@
 /*   By: Linsio <Linsio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 13:28:26 by Linsio            #+#    #+#             */
-/*   Updated: 2023/03/29 14:41:09 by Linsio           ###   ########.fr       */
+/*   Updated: 2023/04/05 13:05:53 by Linsio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "../includes/minishell.h"
 
 size_t	quote_leng(const char *s, size_t k)
 {

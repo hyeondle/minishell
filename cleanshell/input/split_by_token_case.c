@@ -6,11 +6,11 @@
 /*   By: Linsio <Linsio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 13:15:17 by Linsio            #+#    #+#             */
-/*   Updated: 2023/03/29 14:41:07 by Linsio           ###   ########.fr       */
+/*   Updated: 2023/04/05 12:56:25 by Linsio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "../includes/minishell.h"
 
 char	**go_split(char **str, int i, int k)
 {

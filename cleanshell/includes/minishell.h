@@ -6,7 +6,7 @@
 /*   By: Linsio <Linsio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 13:05:16 by Linsio            #+#    #+#             */
-/*   Updated: 2023/04/05 01:14:45 by Linsio           ###   ########.fr       */
+/*   Updated: 2023/04/05 13:05:27 by Linsio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,21 +50,21 @@ typedef struct s_env
 
 typedef struct s_env_list
 {
-    t_env env;
-    struct s_env_list *next;
+    t_env				env;
+	char				*pair;
+    struct s_env_list	*next;
 } t_env_list;
 
 typedef struct s_setting
 {
-	t_env			*env;
-	t_env			*s_env;
+	t_env_list		*env_list;
 	/* data */
 }           t_setting;
 
 
 /*			input				*/
 //	operation.c
-void	operation(char *input);
+void	operation(char *input, t_setting **set);
 
 //	get_input.c
 char	*get_input(void);
@@ -106,11 +106,13 @@ size_t	quote_leng(const char *s, size_t k);
 /*			env_p				*/
 //int	env_init(t_setting *set, char **p_envs);
 /*			env					*/
-t_env_list *init_env(char **envp);
+void init_env(char **envp, t_setting **set);
 char *get_env_value(t_env_list *env, const char *key);
 int add_env(t_env_list **env, const char *key_value_pair);
 int update_env(t_env_list *env, const char *key, const char *new_value);
 int remove_env(t_env_list **env, const char *key);
 void free_env(t_env_list *env);
+char	*get_env_to_str(t_setting **set, char *str);
+
 
 #endif
