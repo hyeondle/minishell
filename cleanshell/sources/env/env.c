@@ -6,7 +6,7 @@
 /*   By: Linsio <Linsio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 10:59:29 by Linsio            #+#    #+#             */
-/*   Updated: 2023/04/05 15:42:07 by Linsio           ###   ########.fr       */
+/*   Updated: 2023/04/05 16:07:44 by Linsio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char *get_env_key(char *str, int i)
 
 	k = i + 1;
 	j = 0;
-	while (str[k] != '$' && str[k] != '\0' && str[k] != '\"' && str[k] != ' ')
+	while (str[k] != '$' && str[k] != '\0' && str[k] != '\"' && str[k] != ' ' && str[k] != '\'')
 		k++;
 	key = (char *)malloc(sizeof(char) * (k - i));
 	if (!key)
@@ -61,7 +61,7 @@ int	get_third_size(char *str)
 	while (str[k] != '$')
 		k++;
 	k++;
-	while (str[k] != '$' && str[k] != '\0' && str[k] != '\"' && str[k] != ' ')
+	while (str[k] != '$' && str[k] != '\0' && str[k] != '\"' && str[k] != ' ' && str[k] != '\'')
 		k++;
 	return (k);
 }
@@ -109,14 +109,21 @@ char	*get_env_to_str(t_setting **set, char *str)
 	char	*value;
 	char	*j_str;
 	char	*tmp;
+	e_quote	quote;
 
 	i = 0;
+	quote = NONE;
 	j_str = str;
 	while (j_str[i])
 	{
-		if (j_str[i] == '\'')
+		if (j_str[i] == '\"' && quote == NONE)
+			quote = DOUBLE;
+		else if (j_str[i] == '\"' && quote == DOUBLE)
+			quote = NONE;
+		if (j_str[i] == '\'' && quote != DOUBLE)
 		{
-			while (j_str[++i] != '\'')
+			i++;
+			while (j_str[i] != '\'')
 				i++;
 			i++;
 		}
