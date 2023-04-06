@@ -6,7 +6,7 @@
 /*   By: Linsio <Linsio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 13:28:26 by Linsio            #+#    #+#             */
-/*   Updated: 2023/04/05 13:05:53 by Linsio           ###   ########.fr       */
+/*   Updated: 2023/04/06 14:52:37 by Linsio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ size_t	quote_leng(const char *s, size_t k)
 	k_p = k + 1;
 	if (s[k] == '\'')
 	{
-		while (s[k_p] != '\'')
+		while (s[k_p] != '\'' && s[k_p] != '\0')
 			k_p++;
 	}
 	else if (s[k] == '\"')
 	{
-		while (s[k_p] != '\"')
+		while (s[k_p] != '\"' && s[k_p] != '\0')
 			k_p++;
 	}
 	else
@@ -90,7 +90,8 @@ size_t	new_strlen_m(char *str, size_t k)
 			while (str[i] != '\"' && str[i] != '\0')
 				i++;
 		}
-		i++;
+		if (str[i] != '\0')
+			i++;
 	}
 	return (i - k + 1);
 }
