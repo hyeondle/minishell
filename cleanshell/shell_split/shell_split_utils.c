@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   shell_split_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Linsio <Linsio@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 13:28:26 by Linsio            #+#    #+#             */
-/*   Updated: 2023/04/06 17:43:01 by Linsio           ###   ########.fr       */
+/*   Updated: 2023/04/07 17:23:18 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ size_t	quote_leng(const char *s, size_t k)
 	}
 	else
 		return 0;
-	return (k_p + 1);
+	return (k_p);
 }
 
 size_t	tab_size(char *s)
@@ -46,7 +46,7 @@ size_t	tab_size(char *s)
 	{
 		if (s[k] == ' ')
 		{
-			while (s[k + 1] == ' ')
+			while (s[k + 1] == ' ' && s[k + 1] != '\0')
 				k++;
 			if (s[k + 1] != '\0' && s[k + 1] != ' ')
 				i++;

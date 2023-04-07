@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   env.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Linsio <Linsio@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 10:59:29 by Linsio            #+#    #+#             */
-/*   Updated: 2023/04/05 16:07:44 by Linsio           ###   ########.fr       */
+/*   Updated: 2023/04/07 17:44:57 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,9 +123,10 @@ char	*get_env_to_str(t_setting **set, char *str)
 		if (j_str[i] == '\'' && quote != DOUBLE)
 		{
 			i++;
-			while (j_str[i] != '\'')
+			while (j_str[i] != '\'' && j_str[i] != '\0')
 				i++;
-			i++;
+			if (j_str[i] != '\0')
+				i++;
 		}
 		if (j_str[i] == '$')
 		{
@@ -139,7 +140,8 @@ char	*get_env_to_str(t_setting **set, char *str)
 			free(key);
 			i = -1;
 		}
-		i++;
+		if (j_str[i] != '\0')
+			i++;
 	}
 	return (j_str);
 }

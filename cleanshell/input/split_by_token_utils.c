@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   split_by_token_utils.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Linsio <Linsio@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 13:16:35 by Linsio            #+#    #+#             */
-/*   Updated: 2023/04/05 12:56:29 by Linsio           ###   ########.fr       */
+/*   Updated: 2023/04/07 17:23:20 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,21 @@ int	check_delimeter(char *str)
 		if (str[i] == '\'')
 		{
 			i++;
-			while (str[i] != '\'')
+			while (str[i] != '\'' && str[i] != '\0')
 				i++;
 			i++;
 		}
 		else if (str[i] == '\"')
 		{
 			i++;
-			while (str[i] != '\"')
+			while (str[i] != '\"' && str[i] != '\0')
 				i++;
 			i++;
 		}
-		if (token_check(str[i]))
+		if (token_check(str[i]) && str[i] != '\0')
 			size++;
-		i++;
+		if (str[i] != '\0')
+			i++;
 	}
 	return (size);
 }
