@@ -6,7 +6,7 @@
 /*   By: Linsio <Linsio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 13:28:26 by Linsio            #+#    #+#             */
-/*   Updated: 2023/04/06 14:52:37 by Linsio           ###   ########.fr       */
+/*   Updated: 2023/04/06 17:43:01 by Linsio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,14 +83,16 @@ size_t	new_strlen_m(char *str, size_t k)
 			i++;
 			while (str[i] != '\'' && str[i] != '\0')
 				i++;
+			i++;
 		}
 		else if (str[i] == '\"')
 		{
 			i++;
 			while (str[i] != '\"' && str[i] != '\0')
 				i++;
+			i++;
 		}
-		if (str[i] != '\0')
+		else
 			i++;
 	}
 	return (i - k + 1);
