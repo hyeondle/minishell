@@ -6,7 +6,7 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 10:59:29 by Linsio            #+#    #+#             */
-/*   Updated: 2023/04/07 17:44:57 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/07 20:41:36 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,6 +130,7 @@ char	*get_env_to_str(t_setting **set, char *str)
 		}
 		if (j_str[i] == '$')
 		{
+			printf("check\n%s\n%d : %c\n", j_str, i, j_str[i]);
 			key = get_env_key(j_str, i);
 			value = get_env_value((*set)->env_list, key);
 			if (!value)
@@ -138,42 +139,10 @@ char	*get_env_to_str(t_setting **set, char *str)
 			j_str = split_and_join(j_str, i, value);
 			free(tmp);
 			free(key);
-			i = -1;
+			i = i + ft_strlen(value) - 1;
 		}
-		if (j_str[i] != '\0')
+		if (i != '\"' && j_str[i] != '\0')
 			i++;
 	}
 	return (j_str);
 }
-
-// char	*get_env_to_str(t_setting **set, char *str)
-// {
-// 	int 	i;
-// 	char	*key;
-// 	char	*value;
-// 	char	*j_str;
-
-// 	i = 0;
-// 	j_str = str;
-// 	while (j_str[i])
-// 	{
-// 		if (j_str[i] == '\'')
-// 		{
-// 			while (j_str[++i] != '\'')
-// 				i++;
-// 			i++;
-// 		}
-// 		if (j_str[i] == '$')
-// 		{
-// 			key = get_env_key(str, i);
-// 			value = get_env_value((*set)->env_list, key);
-// 			if (!value)
-// 				value = "";
-// 			j_str = split_and_join(str, i, value);
-// 			free(key);
-// 			i = -1;
-// 		}
-// 		i++;
-// 	}
-// 	return (j_str);
-// }
