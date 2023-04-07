@@ -1,0 +1,1 @@
+cc -g -fsanitize=address *.c ./libft/basic/*.c ./libft/ft_printf/*.c ./libft/get_next_line/*.c ./input/*.c ./shell_split/*.c ./sources/env/*.c -lreadline -L/Users/hyeondle/.brew/Cellar/readline/8.2.1/lib -I/Users/hyeondle/.brew/Cellar/readline/8.2.1/include
