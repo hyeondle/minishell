@@ -6,7 +6,7 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 23:53:34 by hyeondle          #+#    #+#             */
-/*   Updated: 2023/04/08 00:57:23 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/08 01:00:26 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ typedef struct s_setting
 void	init_env(char **envp, t_setting **set);
 int		add_env(t_env_list **env, const char *key_value_pair);
 int		remove_env(t_env_list **env, const char *key);
+char	*get_env_value(t_env_list *env, const char *key);
 void	free_env(t_env_list	*env);
 
 
