@@ -6,7 +6,7 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 23:53:34 by hyeondle          #+#    #+#             */
-/*   Updated: 2023/04/08 09:31:13 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/09 05:15:20 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,14 +85,15 @@ void	init_env(char **envp, t_setting **set);
 int		add_env(t_env_list **env, const char *key_value_pair);
 int		remove_env(t_env_list **env, const char *key);
 char	*get_env_value(t_env_list *env, const char *key);
+char	*get_env_key(char *str, int i);
 int		update_env(t_env_list *env, const char *key, const char *new_value);
 void	free_env(t_env_list	*env);
-//		env		//
-int		check_env_mark(char	*str);
-char 	*get_env_key(char *str, int i);
-int		get_third_size(char *str);
-char	*split_and_join(char *p_str, int i, char *value);
+//		env_to_str		//
+char	*find_key_and_get_env_value(char *str, int i, t_setting **set);
 char	*get_env_to_str(t_setting **set, char *str);
+//	temp
+char	*split_and_join(char *p_str, int i, char *value);
+int		get_third_size(char *str);
 
 /*			input				*/
 char	*get_input(void);

@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operation.c                                        :+:      :+:    :+:   */
+/*   get_env_key.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/08 02:03:12 by hyeondle          #+#    #+#             */
-/*   Updated: 2023/04/09 05:13:28 by hyeondle         ###   ########.fr       */
+/*   Created: 2023/04/09 04:30:19 by hyeondle          #+#    #+#             */
+/*   Updated: 2023/04/09 05:12:43 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minishell.h"
+#include "../../includes/minishell.h"
 
-void	operation(char *input, t_setting **set)
+char	*get_env_key(char *str, int i)
 {
-	char	**tokenized_str;
-	int		i;
+	int		l;
+	int		k;
+	int		j;
+	char	*key;
 
-	i = 0;
-	tokenized_str = shell_split(input);
-	tokenized_str = split_by_token(tokenized_str);
-	while (tokenized_str[i])
+	k = i + 1;
+	j = 0;
+	while (str[k] != '$' && str[k] != '\0' && str[k] != '\"' && str[k] != ' ' && str[k] != '\'')
+		k++;
+	key = (char *)malloc(sizeof(char) * (k - i));
+	if (!key)
+		return NULL;
+	while (i < k - i)
 	{
-		tokenized_str[i] = get_env_to_str(set, tokenized_str[i]);
+		key[j] = str[i + 1]; 
 		i++;
+		j++;
 	}
-	i = 0;
-	while (tokenized_str[i])
-	{
-		printf("%d : %s%c\n", i, tokenized_str[i], '$');
-		i++;
-	}
+	key[j] = '\0';
+	return (key);
 }

@@ -6,7 +6,7 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 00:58:56 by hyeondle          #+#    #+#             */
-/*   Updated: 2023/04/08 01:00:25 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/09 05:12:42 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ char	*get_env_value(t_env_list *env, const char *key)
 		}
 		current = current->next;
 	}
-	return (NULL);
+	return (NULL); 
 }

@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operation.c                                        :+:      :+:    :+:   */
+/*   find_key_and_get_env_value.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/08 02:03:12 by hyeondle          #+#    #+#             */
-/*   Updated: 2023/04/09 05:13:28 by hyeondle         ###   ########.fr       */
+/*   Created: 2023/04/09 05:02:54 by hyeondle          #+#    #+#             */
+/*   Updated: 2023/04/09 05:09:50 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minishell.h"
+#include "../../../includes/minishell.h"
 
-void	operation(char *input, t_setting **set)
+char	*find_key_and_get_env_value(char *str, int i, t_setting **set)
 {
-	char	**tokenized_str;
-	int		i;
+	char	*key;
+	char	*value;
 
-	i = 0;
-	tokenized_str = shell_split(input);
-	tokenized_str = split_by_token(tokenized_str);
-	while (tokenized_str[i])
-	{
-		tokenized_str[i] = get_env_to_str(set, tokenized_str[i]);
-		i++;
-	}
-	i = 0;
-	while (tokenized_str[i])
-	{
-		printf("%d : %s%c\n", i, tokenized_str[i], '$');
-		i++;
-	}
+	key = get_env_key(str, i);
+	value = get_env_value((*set)->env_list, key);
+	if (!value)
+		value = "";
+	free(key);
+	return (value);
 }
