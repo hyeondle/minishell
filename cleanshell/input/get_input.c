@@ -3,14 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   get_input.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Linsio <Linsio@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 13:10:35 by Linsio            #+#    #+#             */
-/*   Updated: 2023/04/06 01:42:17 by Linsio           ###   ########.fr       */
+/*   Updated: 2023/04/08 01:55:54 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
+
+static void	quote_change(e_quote *quote, char c)
+{
+	if (*quote == SINGLE)
+	{
+		if (c == '\'')
+			*quote = NONE;
+	}
+	else if (*quote == DOUBLE)
+	{
+		if (c == '\"')
+			*quote = NONE;
+	}
+}
 
 int	input_check(char *input)
 {
@@ -28,21 +42,13 @@ int	input_check(char *input)
 			if (input[i] == '\"')
 				quote = DOUBLE;
 		}
-		else if (quote == SINGLE)
-		{
-			if (input[i] == '\'')
-				quote = NONE;
-		}
-		else if (quote == DOUBLE)
-		{
-			if (input[i] == '\"')
-				quote = NONE;
-		}
+		else
+			quote_change(&quote, input[i]);
 		i++;
 	}
 	if (quote == NONE)
-		return 0;
-	return 1;
+		return (0);
+	return (1);
 }
 
 char	*check_input_add(char *additional)
