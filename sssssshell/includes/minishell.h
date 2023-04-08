@@ -6,7 +6,7 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 23:53:34 by hyeondle          #+#    #+#             */
-/*   Updated: 2023/04/08 01:00:26 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/08 08:59:12 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,14 +77,47 @@ typedef struct s_setting
 	t_env_list	*env_list;
 }				t_setting;
 
+/*			actors				*/
+void	operation(char *input, t_setting **set);
+
 /*			environment			*/
 void	init_env(char **envp, t_setting **set);
 int		add_env(t_env_list **env, const char *key_value_pair);
 int		remove_env(t_env_list **env, const char *key);
 char	*get_env_value(t_env_list *env, const char *key);
+int		update_env(t_env_list *env, const char *key, const char *new_value);
 void	free_env(t_env_list	*env);
 
+/*			input				*/
+char	*get_input(void);
+int		input_check(char *input);
+char	*check_input_add(char *additional);
 
+/*			tokenize			*/
+//			shell split			//
+char	**shell_split(char const *s);
+char	*put_word(char *str, size_t s);
+char	**do_split(char **tab, char *temp);
+//			shell split utils	//
+size_t	quote_leng(const char *s, size_t k);
+size_t	tab_size(char *s);
+t_quote	check_quote(char temp);
+size_t	new_strlen_m(char *str, size_t k);
+//			token split			//
+char	**split_by_token(char **str);
+char	**split_by_case(char **str, int i, int k);
+//			case				//
+char	**go_split(char **str, int i, int k);
+char	**token_split_case_alone(char **str, int i, int k);
+char	**token_split_case_no_back(char **str, int i, int k);
+char	**token_split_case_no_front(char **str, int i, int k);
+//			token split utils	//
+int		split_case_index_check(char **str, int i, int k);
+int		token_check(char c);
+int		check_delimeter(char *str);
+int		check_delimeter_type_i(char	*str);
+size_t	dtab_size(char **str);
+char	*deli_char(char c);
 
 
 #endif
