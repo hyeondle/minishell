@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_env_key.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Linsio <Linsio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 04:30:19 by hyeondle          #+#    #+#             */
-/*   Updated: 2023/04/09 05:12:43 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/09 06:13:40 by Linsio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ char	*get_env_key(char *str, int i)
 	key = (char *)malloc(sizeof(char) * (k - i));
 	if (!key)
 		return NULL;
-	while (i < k - i)
+	while (i < k)
 	{
-		key[j] = str[i + 1]; 
+		key[j] = str[i + 1];
 		i++;
 		j++;
 	}
-	key[j] = '\0';
+	key[j - 1] = '\0';
 	return (key);
 }

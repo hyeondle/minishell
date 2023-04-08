@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   find_key_and_get_env_value.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Linsio <Linsio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 05:02:54 by hyeondle          #+#    #+#             */
-/*   Updated: 2023/04/09 05:09:50 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/09 06:09:24 by Linsio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ char	*find_key_and_get_env_value(char *str, int i, t_setting **set)
 	value = get_env_value((*set)->env_list, key);
 	if (!value)
 		value = "";
+	printf("key : %s\n", key);
 	free(key);
 	return (value);
 }
