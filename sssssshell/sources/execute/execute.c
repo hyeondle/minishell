@@ -6,18 +6,14 @@
 /*   By: Linsio <Linsio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 11:43:19 by Linsio            #+#    #+#             */
-/*   Updated: 2023/04/12 16:15:40 by Linsio           ###   ########.fr       */
+/*   Updated: 2023/04/12 16:29:02 by Linsio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 //각종 에러 및 예외 처리 할 것, 빌트인 안이 아니면 execute실행하도록 함수 하나 더 추가
-int	find_case_and_execute(char **inputs, t_setting **set, int flag)
-{
-	if (flag ==)
-}
 
-int	isexecute(char **inputs, t_setting **set)
+static int	isexecute(char **inputs, t_setting **set)
 {
 	char	*path;
 	char	**e_path;

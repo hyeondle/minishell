@@ -6,7 +6,7 @@
 /*   By: Linsio <Linsio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 23:53:34 by hyeondle          #+#    #+#             */
-/*   Updated: 2023/04/12 15:28:00 by Linsio           ###   ########.fr       */
+/*   Updated: 2023/04/12 16:29:51 by Linsio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,9 @@ char	*get_input(void);
 int		input_check(char *input);
 char	*check_input_add(char *additional);
 
+/*			execute				*/
+int	execute(char **inputs, t_setting **set);
+
 /*			tokenize			*/
 //			shell split			//
 char	**shell_split(char const *s);
@@ -126,6 +129,12 @@ int		check_delimeter(char *str);
 int		check_delimeter_type_i(char	*str);
 size_t	dtab_size(char **str);
 char	*deli_char(char c);
+
+/*								*/
+/*			builtins			*/
+/*								*/
+//		echo
+int		ft_echo(char **inputs);
 
 
 #endif
