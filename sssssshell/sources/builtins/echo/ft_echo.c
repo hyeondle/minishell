@@ -6,7 +6,7 @@
 /*   By: Linsio <Linsio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 02:48:28 by Linsio            #+#    #+#             */
-/*   Updated: 2023/04/12 15:45:47 by Linsio           ###   ########.fr       */
+/*   Updated: 2023/04/12 16:27:43 by Linsio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,23 @@
 int	ft_echo_with_option_n(char **inputs)
 {
 	int i = 2;
-	while 
+	if (inputs[i] == NULL || *(inputs[i]) == '\0')
+	{
+		ft_putstr_fd("\n", STDOUT_FILENO);
+		return (0);
+	}
+	while (inputs[i])
+	{
+		if (!inputs[i + 1])
+		{
+			ft_putstr_fd(inputs[i], STDOUT_FILENO);
+			break;
+		}
+		ft_putstr_fd(inputs[i], STDOUT_FILENO);
+		ft_putstr_fd(" ", STDOUT_FILENO);
+		i++;
+	}
+	return (0);
 }
 
 int	ft_echo(char **inputs)
@@ -43,5 +59,5 @@ int	ft_echo(char **inputs)
 			i++;
 		}
 	}
-	return 0;
+	return (0);
 }
