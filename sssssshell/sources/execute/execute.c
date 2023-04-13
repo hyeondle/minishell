@@ -6,7 +6,7 @@
 /*   By: Linsio <Linsio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 11:43:19 by Linsio            #+#    #+#             */
-/*   Updated: 2023/04/12 16:29:02 by Linsio           ###   ########.fr       */
+/*   Updated: 2023/04/13 11:40:59 by Linsio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,5 @@ int	execute(char **inputs, t_setting **set)
 		flag = 8;
 	else
 		isexecute(inputs, set);
+	return (0);
 }
