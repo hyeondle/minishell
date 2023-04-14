@@ -6,7 +6,7 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 02:47:04 by Linsio            #+#    #+#             */
-/*   Updated: 2023/04/14 19:42:15 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/14 23:21:15 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,6 @@ int	ft_export(t_setting **set, char **inputs)
 	while (inputs[i])
 	{
 		flag = add_env(&((*set)->env_list), inputs[i], set);
-		if (flag == 1)
-		{
-			printf("error\n");
-			break;
-		}
 		i++;
 	}
 	return (0);
