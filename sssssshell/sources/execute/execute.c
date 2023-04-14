@@ -6,7 +6,7 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 11:43:19 by Linsio            #+#    #+#             */
-/*   Updated: 2023/04/14 20:13:02 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/14 21:58:36 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	execute(char **inputs, t_setting **set)
 	else if (ft_strcmp(o, "exit") == 0)
 		ft_exit(inputs, set);
 	else if (ft_strcmp(o, "export") == 0)
-		flag = 5;
+		ft_export(set, inputs);
 	else if (ft_strcmp(o, "ls") == 0)
 		flag = 6;
 	else if (ft_strcmp(o, "pwd") == 0)
