@@ -6,7 +6,7 @@
 #    By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/14 15:17:23 by hyeondle          #+#    #+#              #
-#    Updated: 2023/04/14 16:08:22 by hyeondle         ###   ########.fr        #
+#    Updated: 2023/04/14 20:13:42 by hyeondle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,12 @@ SOURCES_MAKING	=	execute/execute.c\
 					environment/env_to_str/find_key_and_get_env_value.c\
 					environment/env_to_str/get_env_to_str.c\
 					environment/env_to_str/split_and_join.c\
-					builtins/echo/ft_echo.c
+					environment/remove_env_envp.c\
+					environment/add_env_envp.c\
+					builtins/echo/ft_echo.c\
+					builtins/env/ft_env.c\
+					builtins/export/ft_export.c\
+					builtins/exit/ft_exit.c\
 
 SOURCE			=	$(addprefix $(SOURCE_DIR), $(SOURCES))
 SOURCE_N		=	$(addprefix $(SOURCE_DIR), $(SOURCES_MAKING))
@@ -72,7 +77,7 @@ RM				=	rm -f
 RM_OBJECT		=	rm -rf $(OBJECT)
 
 .c.o			:
-					$(CC) -c $< -o $(<:.c=.o) -I $(HEADER_DIR)
+					$(CC) -c $< -o $(<:.c=.o) -I $(HEADER_DIR) -g -fsanitize=address
 
 all				:	$(NAME)
 
@@ -80,7 +85,7 @@ $(LIBFT)		:
 					make -C $(LIBFT_DIR)
 
 $(NAME)			:	$(OBJECT) $(LIBFT)
-					$(CC) -I $(HEADER_DIR) $(OBJECT) $(READLINE_FLAG) $(LIBFT_FLAG) -o $(NAME)
+					$(CC) -g -fsanitize=address -I $(HEADER_DIR) $(OBJECT) $(READLINE_FLAG) $(LIBFT_FLAG) -o $(NAME)
 
 clean			:
 					$(RM_OBJECT)

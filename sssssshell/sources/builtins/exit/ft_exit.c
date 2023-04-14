@@ -3,11 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_exit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Linsio <Linsio@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 02:49:06 by Linsio            #+#    #+#             */
-/*   Updated: 2023/04/12 02:49:11 by Linsio           ###   ########.fr       */
+/*   Updated: 2023/04/14 20:12:45 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //종료
+#include "../../../includes/minishell.h"
+
+int	ft_exit(char **inputs, t_setting **set)
+{
+	(*set)->exit = 1;
+	printf("exit\n");
+	return 0;
+}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_echo.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Linsio <Linsio@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 02:48:28 by Linsio            #+#    #+#             */
-/*   Updated: 2023/04/12 16:29:58 by Linsio           ###   ########.fr       */
+/*   Updated: 2023/04/14 19:26:44 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,13 @@ static int	ft_echo_with_option_n(char **inputs)
 
 int	ft_echo(char **inputs)
 {
-	int	i = 1;
+	int	i;
 
+	i = 1;
 	if (inputs[i] == NULL || *(inputs[i]) == '\0')
 	{
 		printf("\n");
-		return (0);
+		return (1);
 	}
 	if (ft_strcmp(inputs[i], "-n") == 0)
 		ft_echo_with_option_n(inputs);

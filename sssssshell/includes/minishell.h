@@ -6,7 +6,7 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 23:53:34 by hyeondle          #+#    #+#             */
-/*   Updated: 2023/04/14 14:56:05 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/14 20:13:03 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,12 +68,12 @@ typedef struct s_env
 typedef struct s_env_list
 {
 	t_env				env;
-	char				*pair;
 	struct s_env_list	*next;
 }						t_env_list;
 
 typedef struct s_setting
 {
+	int			exit;
 	char		**envp;
 	t_env_list	*env_list;
 }				t_setting;
@@ -83,8 +83,10 @@ void	operation(char *input, t_setting **set);
 
 /*			environment			*/
 void	init_env(char **envp, t_setting **set);
-int		add_env(t_env_list **env, const char *key_value_pair);
-int		remove_env(t_env_list **env, const char *key);
+int		add_env_envp(t_setting **set, const char *str);
+int		add_env(t_env_list **env, const char *key_value_pair, t_setting **set);
+int		remove_env_envp(t_setting **set, const char *key);
+int		remove_env(t_env_list **env, const char *key, t_setting **set);
 char	*get_env_value(t_env_list *env, const char *key);
 char	*get_env_key(char *str, int i);
 int		update_env(t_env_list *env, const char *key, const char *new_value);
@@ -135,6 +137,9 @@ char	*deli_char(char c);
 /*								*/
 //		echo
 int		ft_echo(char **inputs);
-
+//		env
+int		ft_env(char **envp);
+//		exit
+int		ft_exit(char **inputs, t_setting **set);
 
 #endif
