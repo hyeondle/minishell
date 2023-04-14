@@ -6,7 +6,7 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 00:50:27 by hyeondle          #+#    #+#             */
-/*   Updated: 2023/04/14 20:14:34 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/15 00:31:59 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	remove_env(t_env_list **env, const char *key, t_setting **set)
 				prev->next = current->next;
 			else
 				*env = current->next;
+			remove_env_envp(set, key);
 			free(current->env.key);
 			free(current->env.value);
 			free(current);
@@ -35,6 +36,5 @@ int	remove_env(t_env_list **env, const char *key, t_setting **set)
 		prev = current;
 		current = current->next;
 	}
-	remove_env_envp(set, key);
-	return (-1);
+	return (1);
 }

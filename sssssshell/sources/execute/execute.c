@@ -6,7 +6,7 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 11:43:19 by Linsio            #+#    #+#             */
-/*   Updated: 2023/04/14 23:48:58 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/14 23:55:23 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int	execute(char **inputs, t_setting **set)
 	else if (ft_strcmp(o, "pwd") == 0)
 		return (0);
 	else if (ft_strcmp(o, "unset") == 0)
-		return (0);
+		ft_unset(set, inputs);
 	else
 		isexecute(inputs, set);
 	return (0);

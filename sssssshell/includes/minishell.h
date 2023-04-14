@@ -6,7 +6,7 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 23:53:34 by hyeondle          #+#    #+#             */
-/*   Updated: 2023/04/14 22:43:13 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/15 00:26:45 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,5 +143,7 @@ int		ft_env(char **envp);
 int		ft_exit(char **inputs, t_setting **set);
 //		export
 int		ft_export(t_setting **set, char **inputs);
+//		unset
+int		ft_unset(t_setting **set, char **inputs);
 
 #endif

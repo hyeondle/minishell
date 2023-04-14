@@ -6,7 +6,7 @@
 #    By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/14 15:17:23 by hyeondle          #+#    #+#              #
-#    Updated: 2023/04/14 20:13:42 by hyeondle         ###   ########.fr        #
+#    Updated: 2023/04/15 00:28:21 by hyeondle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,6 +60,7 @@ SOURCES_MAKING	=	execute/execute.c\
 					builtins/env/ft_env.c\
 					builtins/export/ft_export.c\
 					builtins/exit/ft_exit.c\
+					builtins/unset/ft_unset.c\
 
 SOURCE			=	$(addprefix $(SOURCE_DIR), $(SOURCES))
 SOURCE_N		=	$(addprefix $(SOURCE_DIR), $(SOURCES_MAKING))
@@ -77,7 +78,7 @@ RM				=	rm -f
 RM_OBJECT		=	rm -rf $(OBJECT)
 
 .c.o			:
-					$(CC) -c $< -o $(<:.c=.o) -I $(HEADER_DIR) -g -fsanitize=address
+					$(CC) -c -g -fsanitize=address $< -o $(<:.c=.o) -I $(HEADER_DIR)
 
 all				:	$(NAME)
 
