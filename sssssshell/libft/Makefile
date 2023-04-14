@@ -6,7 +6,7 @@
 #    By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/18 16:03:02 by hyeondle          #+#    #+#              #
-#    Updated: 2023/03/18 17:51:24 by hyeondle         ###   ########.fr        #
+#    Updated: 2023/04/14 16:07:18 by hyeondle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,6 @@ $(NAME)			:	$(BASIC_DIR)$(BASIC) $(PF_DIR)$(PF) $(GNL_DIR)$(GNL)
 					cd $(TEMP_DIR) && ar -x $(BASIC) && ar -x $(PF) && ar -x $(GNL)
 					$(LIB) $(NAME) $(TEMP_DIR)/*.o
 					rm -rf $(TEMP_DIR)
-					
 
 clean :
 	@make -C $(BASIC_DIR) clean

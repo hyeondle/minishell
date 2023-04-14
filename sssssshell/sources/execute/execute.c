@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execute.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Linsio <Linsio@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 11:43:19 by Linsio            #+#    #+#             */
-/*   Updated: 2023/04/13 11:40:59 by Linsio           ###   ########.fr       */
+/*   Updated: 2023/04/14 16:05:24 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,20 +62,20 @@ int	execute(char **inputs, t_setting **set)
 	o = inputs[0];
 	if (ft_strcmp(o, "echo") == 0)
 		ft_echo(inputs);
-	else if (ft_strcmp(o, "cd") == 0)
-		flag = 2;
-	else if (ft_strcmp(o, "env") == 0)
-		flag = 3;
-	else if (ft_strcmp(o, "exit") == 0)
-		flag = 4;
-	else if (ft_strcmp(o, "export") == 0)
-		flag = 5;
-	else if (ft_strcmp(o, "ls") == 0)
-		flag = 6;
-	else if (ft_strcmp(o, "pwd") == 0)
-		flag = 7;
-	else if (ft_strcmp(o, "unset") == 0)
-		flag = 8;
+	// else if (ft_strcmp(o, "cd") == 0)
+	// 	flag = 2;
+	// else if (ft_strcmp(o, "env") == 0)
+	// 	flag = 3;
+	// else if (ft_strcmp(o, "exit") == 0)
+	// 	flag = 4;
+	// else if (ft_strcmp(o, "export") == 0)
+	// 	flag = 5;
+	// else if (ft_strcmp(o, "ls") == 0)
+	// 	flag = 6;
+	// else if (ft_strcmp(o, "pwd") == 0)
+	// 	flag = 7;
+	// else if (ft_strcmp(o, "unset") == 0)
+	// 	flag = 8;
 	else
 		isexecute(inputs, set);
 	return (0);
