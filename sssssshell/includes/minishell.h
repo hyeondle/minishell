@@ -6,7 +6,7 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 23:53:34 by hyeondle          #+#    #+#             */
-/*   Updated: 2023/04/15 00:26:45 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/15 06:37:18 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,18 +132,13 @@ int		check_delimeter_type_i(char	*str);
 size_t	dtab_size(char **str);
 char	*deli_char(char c);
 
-/*								*/
 /*			builtins			*/
-/*								*/
-//		echo
 int		ft_echo(char **inputs);
-//		env
 int		ft_env(char **envp);
-//		exit
 int		ft_exit(char **inputs, t_setting **set);
-//		export
 int		ft_export(t_setting **set, char **inputs);
-//		unset
 int		ft_unset(t_setting **set, char **inputs);
+int		ft_pwd();
+int		ft_cd(char **inputs);
 
 #endif

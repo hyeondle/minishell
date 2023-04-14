@@ -6,7 +6,7 @@
 #    By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/14 15:17:23 by hyeondle          #+#    #+#              #
-#    Updated: 2023/04/15 00:28:21 by hyeondle         ###   ########.fr        #
+#    Updated: 2023/04/15 06:07:08 by hyeondle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,6 +61,9 @@ SOURCES_MAKING	=	execute/execute.c\
 					builtins/export/ft_export.c\
 					builtins/exit/ft_exit.c\
 					builtins/unset/ft_unset.c\
+					builtins/pwd/ft_pwd.c\
+					builtins/cd/ft_cd.c\
+					builtins/ls/ft_ls.c\
 
 SOURCE			=	$(addprefix $(SOURCE_DIR), $(SOURCES))
 SOURCE_N		=	$(addprefix $(SOURCE_DIR), $(SOURCES_MAKING))

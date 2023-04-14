@@ -6,7 +6,7 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 11:43:19 by Linsio            #+#    #+#             */
-/*   Updated: 2023/04/15 01:32:24 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/15 06:36:05 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,17 +65,15 @@ int	execute(char **inputs, t_setting **set)
 	if (ft_strcmp(o, "echo") == 0)
 		ft_echo(inputs);
 	else if (ft_strcmp(o, "cd") == 0)
-		return (0);
+		ft_cd(inputs);
 	else if (ft_strcmp(o, "env") == 0)
 		ft_env((*set)->envp);
 	else if (ft_strcmp(o, "exit") == 0)
 		ft_exit(inputs, set);
 	else if (ft_strcmp(o, "export") == 0)
 		ft_export(set, inputs);
-	else if (ft_strcmp(o, "ls") == 0)
-		return (0);
 	else if (ft_strcmp(o, "pwd") == 0)
-		return (0);
+		ft_pwd();
 	else if (ft_strcmp(o, "unset") == 0)
 		ft_unset(set, inputs);
 	else
