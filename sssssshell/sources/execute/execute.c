@@ -6,7 +6,7 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 11:43:19 by Linsio            #+#    #+#             */
-/*   Updated: 2023/04/15 06:36:05 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/15 06:41:20 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,7 @@ int	execute(char **inputs, t_setting **set)
 		ft_unset(set, inputs);
 	else
 		isexecute(inputs, set);
+	// else함수는 일단 자식 프로세스에서 실행 하도록 해야함
+	// ls같은 명령어 치면 쉘이 종료됨. (종료되면 안됨)
 	return (0);
 }
