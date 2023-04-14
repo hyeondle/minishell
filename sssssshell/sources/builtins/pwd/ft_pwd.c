@@ -6,11 +6,10 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 02:47:50 by Linsio            #+#    #+#             */
-/*   Updated: 2023/04/15 05:51:02 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/15 06:38:10 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//현재 경로 보여주기
 #include "../../../includes/minishell.h"
 
 int	ft_pwd(void)

@@ -6,13 +6,12 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 02:44:50 by Linsio            #+#    #+#             */
-/*   Updated: 2023/04/14 17:31:44 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/15 06:37:56 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/minishell.h"
 
-//환경변수 목록 출력
 int	ft_env(char **envp)
 {
 	int	i;

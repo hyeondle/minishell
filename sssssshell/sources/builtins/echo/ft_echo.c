@@ -6,13 +6,12 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 02:48:28 by Linsio            #+#    #+#             */
-/*   Updated: 2023/04/14 19:26:44 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/15 06:37:47 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/minishell.h"
 
-//들어오는 명령어 출력
 static int	ft_echo_with_option_n(char **inputs)
 {
 	int i = 2;

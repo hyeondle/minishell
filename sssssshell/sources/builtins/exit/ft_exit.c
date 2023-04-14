@@ -6,11 +6,10 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 02:49:06 by Linsio            #+#    #+#             */
-/*   Updated: 2023/04/14 20:12:45 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/15 06:37:59 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//종료
 #include "../../../includes/minishell.h"
 
 int	ft_exit(char **inputs, t_setting **set)
