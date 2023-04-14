@@ -6,7 +6,7 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 11:43:19 by Linsio            #+#    #+#             */
-/*   Updated: 2023/04/14 21:58:36 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/14 23:48:58 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,12 @@ int	execute(char **inputs, t_setting **set)
 	int		flag;
 
 	o = inputs[0];
+	if (o == NULL)
+		return (1);
 	if (ft_strcmp(o, "echo") == 0)
 		ft_echo(inputs);
 	else if (ft_strcmp(o, "cd") == 0)
-		flag = 2;
+		return (0);
 	else if (ft_strcmp(o, "env") == 0)
 		ft_env((*set)->envp);
 	else if (ft_strcmp(o, "exit") == 0)
@@ -71,11 +73,11 @@ int	execute(char **inputs, t_setting **set)
 	else if (ft_strcmp(o, "export") == 0)
 		ft_export(set, inputs);
 	else if (ft_strcmp(o, "ls") == 0)
-		flag = 6;
+		return (0);
 	else if (ft_strcmp(o, "pwd") == 0)
-		flag = 7;
+		return (0);
 	else if (ft_strcmp(o, "unset") == 0)
-		flag = 8;
+		return (0);
 	else
 		isexecute(inputs, set);
 	return (0);
