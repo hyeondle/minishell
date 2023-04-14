@@ -6,7 +6,7 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 02:49:06 by Linsio            #+#    #+#             */
-/*   Updated: 2023/04/15 06:37:59 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/15 07:13:38 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,7 @@ int	ft_exit(char **inputs, t_setting **set)
 {
 	(*set)->exit = 1;
 	printf("exit\n");
-	return 0;
+	return (0);
 }
+
+//need to make return value

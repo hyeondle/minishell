@@ -6,19 +6,14 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 08:53:22 by hyeondle          #+#    #+#             */
-/*   Updated: 2023/04/08 08:53:48 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/15 06:49:13 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../../includes/minishell.h"
 
-int	check_delimeter(char *str)
+static int	del_size(char *str, int i, int size)
 {
-	int	i;
-	int size;
-
-	i = 0;
-	size = 0;
 	while (str[i])
 	{
 		if (str[i] == '\'')
@@ -41,4 +36,14 @@ int	check_delimeter(char *str)
 			i++;
 	}
 	return (size);
+}
+
+int	check_delimeter(char *str)
+{
+	int	i;
+	int	size;
+
+	i = 0;
+	size = 0;
+	return (del_size(str, i, size));
 }

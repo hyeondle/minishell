@@ -6,13 +6,14 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 00:35:56 by hyeondle          #+#    #+#             */
-/*   Updated: 2023/04/14 23:20:56 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/15 07:09:20 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-static int	add_envd(t_env_list **env, const char *key_value_pair, t_setting **set)
+static int	add_envd(t_env_list **env, const char *key_value_pair, \
+					t_setting **set)
 {
 	t_env_list	*new_node;
 	char		*equal_sign;
@@ -33,12 +34,10 @@ static int	add_envd(t_env_list **env, const char *key_value_pair, t_setting **se
 	return (0);
 }
 
-
 void	init_env(char **envp, t_setting **set)
 {
 	t_env_list	*head;
 	int			i;
-
 
 	while (envp[i])
 		i++;
@@ -50,8 +49,6 @@ void	init_env(char **envp, t_setting **set)
 		i++;
 	}
 	(*set)->envp[i] = NULL;
-
-
 	head = NULL;
 	i = 0;
 	while (envp[i])

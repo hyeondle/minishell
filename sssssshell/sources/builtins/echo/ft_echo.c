@@ -6,7 +6,7 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 02:48:28 by Linsio            #+#    #+#             */
-/*   Updated: 2023/04/15 06:37:47 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/15 07:14:00 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 static int	ft_echo_with_option_n(char **inputs)
 {
-	int i = 2;
+	int	i;
+
+	i = 2;
 	if (inputs[i] == NULL || *(inputs[i]) == '\0')
 	{
 		ft_putstr_fd("\n", STDOUT_FILENO);
@@ -25,7 +27,7 @@ static int	ft_echo_with_option_n(char **inputs)
 		if (!inputs[i + 1])
 		{
 			ft_putstr_fd(inputs[i], STDOUT_FILENO);
-			break;
+			break ;
 		}
 		ft_putstr_fd(inputs[i], STDOUT_FILENO);
 		ft_putstr_fd(" ", STDOUT_FILENO);
@@ -53,7 +55,7 @@ int	ft_echo(char **inputs)
 			if (!inputs[i + 1])
 			{
 				printf("%s\n", inputs[i]);
-				break;
+				break ;
 			}
 			printf("%s ", inputs[i]);
 			i++;

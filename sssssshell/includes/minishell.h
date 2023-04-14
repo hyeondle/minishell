@@ -6,26 +6,27 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 23:53:34 by hyeondle          #+#    #+#             */
-/*   Updated: 2023/04/15 06:40:32 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/15 07:18:25 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 readline.h	=	readline
-history.h	=	re_clear_history, rl_on_new_line, rl_replace_line, re_redisplay, add_history
+history.h	=	re_clear_history, rl_on_new_line,
+				rl_replace_line, re_redisplay, add_history
 stdio.h		=	printf, strerror, perror
 stdlib.h	=	malloc, free
 sys/stat.h	=	getcwd, chdir, stat, lstat, fstat, unlink, execve
 dirent.h	=	opendir, readdir, closedir
 unistd.h	=	write, access, dup, dup2, pipe
-signal.h	=	fork, wait, waitpid, wait3, wiat4, signal, sigaction, sigemptyset, sigaddset, kill, exit
+signal.h	=	fork, wait, waitpid, wait3, wiat4, signal,
+				sigaction, sigemptyset, sigaddset, kill, exit
 sys/ioctl.h	=	isatty, ttyname, ttyslot, ioctl
 stdlib.h	=	getenv
 termios.h	=	tcsetattr, tcgetattr
 termcap		=	tgetnet, tgetflag, tgetnum, tgetstr, tgoto, tputs
 fcntl.h		=	open, read, close
 */
-
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
@@ -45,9 +46,9 @@ fcntl.h		=	open, read, close
 # include <readline/readline.h>
 # include <readline/history.h>
 
-# define	HISTORY_FILE	".minishell_history"
-# ifndef	HISTORY_SIZE
-#  define	HISTORY_SIZE	1024
+# define HISTORY_FILE	".minishell_history"
+# ifndef HISTORY_SIZE
+#  define HISTORY_SIZE	1024
 # endif
 
 /*		typedef			*/
@@ -104,7 +105,9 @@ int		input_check(char *input);
 char	*check_input_add(char *additional);
 
 /*			execute				*/
-int	execute(char **inputs, t_setting **set);
+int		execute(char **inputs, t_setting **set);
+int		execute_check(char *o);
+int		go_execute(char **inputs, t_setting **set, char *o);
 
 /*			tokenize			*/
 //			shell split			//
@@ -138,7 +141,7 @@ int		ft_env(char **envp);
 int		ft_exit(char **inputs, t_setting **set);
 int		ft_export(t_setting **set, char **inputs);
 int		ft_unset(t_setting **set, char **inputs);
-int		ft_pwd();
+int		ft_pwd(void);
 int		ft_cd(char **inputs);
 
 #endif

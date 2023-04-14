@@ -6,7 +6,7 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 08:50:42 by hyeondle          #+#    #+#             */
-/*   Updated: 2023/04/08 08:56:20 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/15 06:49:45 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ char	**split_by_case(char **str, int i, int k)
 		if (str[i][k + 1] != '\0')
 			temp = token_split_case_no_front(str, i, k);
 		else
-			return str;
-			//temp = token_split_case_alone(str, i, k); // 에러남. 수정
+			return (str);
 	}
 	else
 	{

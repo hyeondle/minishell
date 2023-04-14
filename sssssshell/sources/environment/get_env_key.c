@@ -6,7 +6,7 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 04:30:19 by hyeondle          #+#    #+#             */
-/*   Updated: 2023/04/14 19:10:59 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/15 07:10:04 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,12 @@ char	*get_env_key(char *str, int i)
 
 	k = i + 1;
 	j = 0;
-	while (str[k] != '$' && str[k] != '\0' && str[k] != '\"' && str[k] != ' ' && str[k] != '\'')
+	while (str[k] != '$' && str[k] != '\0' && str[k] != '\"' \
+			&& str[k] != ' ' && str[k] != '\'')
 		k++;
 	key = (char *)malloc(sizeof(char) * (k - i));
 	if (!key)
-		return NULL;
+		return (NULL);
 	while (i < k)
 	{
 		key[j] = str[i + 1];

@@ -6,7 +6,7 @@
 #    By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/14 15:17:23 by hyeondle          #+#    #+#              #
-#    Updated: 2023/04/15 06:07:08 by hyeondle         ###   ########.fr        #
+#    Updated: 2023/04/15 07:08:10 by hyeondle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,7 +63,7 @@ SOURCES_MAKING	=	execute/execute.c\
 					builtins/unset/ft_unset.c\
 					builtins/pwd/ft_pwd.c\
 					builtins/cd/ft_cd.c\
-					builtins/ls/ft_ls.c\
+					execute/execute_utils.c\
 
 SOURCE			=	$(addprefix $(SOURCE_DIR), $(SOURCES))
 SOURCE_N		=	$(addprefix $(SOURCE_DIR), $(SOURCES_MAKING))
