@@ -6,7 +6,7 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 11:43:19 by Linsio            #+#    #+#             */
-/*   Updated: 2023/04/15 07:20:49 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/15 20:41:40 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ int	execute(char **inputs, t_setting **set)
 {
 	char	*o;
 	int		flag;
+	pid_t	pid;
 
 	flag = 0;
 	o = inputs[0];
@@ -80,6 +81,16 @@ int	execute(char **inputs, t_setting **set)
 	if (execute_check(o))
 		flag = go_execute(inputs, set, o);
 	else
-		isexecute(inputs, set);
+	{
+		pid = fork();
+		if (pid == -1)
+			exit(EXIT_FAILURE);
+		else if (pid == 0)
+		{
+			isexecute(inputs, set);
+		}
+		else
+			wait(&((*set)->child_exit_status));
+	}
 	return (flag);
 }

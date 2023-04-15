@@ -6,14 +6,14 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 01:33:48 by hyeondle          #+#    #+#             */
-/*   Updated: 2023/04/14 15:49:59 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/15 20:30:19 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //get whole input
 #include "../../includes/minishell.h"
 
-char	*get_input(void)
+char	*get_input(t_setting **set)
 {
 	char	*input;
 	char	*input_add;
@@ -22,7 +22,7 @@ char	*get_input(void)
 	input = readline("minishell> ");
 	if (!input)
 	{
-		printf("\n");
+		ft_exit(NULL, set);
 		return (NULL);
 	}
 	i = input_check(input);

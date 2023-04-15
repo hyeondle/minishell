@@ -6,7 +6,7 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 02:03:12 by hyeondle          #+#    #+#             */
-/*   Updated: 2023/04/15 07:14:20 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/15 20:26:37 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ void	operation(char *input, t_setting **set)
 	}
 	i = 0;
 	execute(tokenized_str, set);
-	while (tokenized_str[i])
-	{
-		printf("%d : %s%c\n", i, tokenized_str[i], '$');
-		i++;
-	}
+	// while (tokenized_str[i])
+	// {
+	// 	printf("%d : %s%c\n", i, tokenized_str[i], '$');
+	// 	i++;
+	// }
 }
 
 //여기서 delimeter기준으로 쪼개진 배열들을 나눈 뒤, 다시 환경변수 처리할 것

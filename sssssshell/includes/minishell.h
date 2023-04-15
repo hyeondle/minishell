@@ -6,7 +6,7 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 23:53:34 by hyeondle          #+#    #+#             */
-/*   Updated: 2023/04/15 17:10:38 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/15 20:20:40 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ typedef struct s_env_list
 typedef struct s_setting
 {
 	int				exit;
+	int				child_exit_status;
 	char			**envp;
 	t_env_list		*env_list;
 	struct termios	saved_termios;
@@ -102,7 +103,7 @@ char	*split_and_join(char *p_str, int i, char *value);
 int		get_third_size(char *str);
 
 /*			input				*/
-char	*get_input(void);
+char	*get_input(t_setting **set);
 int		input_check(char *input);
 char	*check_input_add(char *additional);
 
