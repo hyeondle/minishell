@@ -6,7 +6,7 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 23:53:07 by hyeondle          #+#    #+#             */
-/*   Updated: 2023/04/16 04:18:32 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/16 05:10:06 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ static t_setting	*init_set(char **envp)
 	if (!set)
 		return (NULL);
 	set->exit = 0;
+	set->l_history = NULL;
+	set->s_history = NULL;
 	init_env(envp, &set);
 	init_history(&set);
 	rl_catch_signals = 0;

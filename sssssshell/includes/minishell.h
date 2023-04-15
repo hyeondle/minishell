@@ -6,7 +6,7 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 23:53:34 by hyeondle          #+#    #+#             */
-/*   Updated: 2023/04/16 05:04:22 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/16 05:11:42 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ typedef struct s_setting
 	char			**envp;
 	t_env_list		*env_list;
 	t_history		*s_history;
-	char			**l_history;
+	t_history		*l_history;
 }				t_setting;
 
 /*			actors				*/

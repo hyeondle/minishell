@@ -6,7 +6,7 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 03:53:58 by hyeondle          #+#    #+#             */
-/*   Updated: 2023/04/16 04:43:19 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/16 05:15:04 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,31 @@
 
 void	init_history(t_setting **setting)
 {
-	t_setting	*set;
 	t_history	*history;
+	t_history	*temp;
+	char		*str;
 	int			fd;
 	int			i;
 
-	set = *setting;
 	i = 0;
 	fd = open(HISTORY_FILE, O_RDONLY);
 	if (fd == -1)
 		return ;
-	set->l_history[i] = get_next_line(fd);
-	while (set->l_history[i])
+	str = get_next_line(fd);
+	if (!str)
+		return ;
+	history = (t_history *)malloc(sizeof(t_history));
+	if (!history)
+		return ;
+	history->next = NULL;
+	temp = history;
+	while (str)
 	{
-		add_history(set->l_history[i]);
+		history->history = ft_strdup(str);
+		add_history(str);
 		i++;
-		set->l_history[i] = get_next_line(fd);
+		str = get_next_line(fd);
+
 	}
-	set->s_history = NULL;
 	close(fd);
 }
