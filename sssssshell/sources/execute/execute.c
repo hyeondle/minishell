@@ -6,7 +6,7 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 11:43:19 by Linsio            #+#    #+#             */
-/*   Updated: 2023/04/16 00:21:12 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/16 01:07:10 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,7 @@ static int	isexecute(char **inputs, t_setting **set)
 	e_path = ft_split(path, ':');
 	exec = get_path(inputs, set, e_path);
 	if (exec == NULL)
-	{
-		printf("notexec\n");
 		exit(EXIT_FAILURE);
-	}
 	free(path);
 	path = inputs[0];
 	inputs[0] = ft_strdup(exec);
