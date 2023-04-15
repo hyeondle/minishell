@@ -6,13 +6,13 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 23:53:07 by hyeondle          #+#    #+#             */
-/*   Updated: 2023/04/16 01:07:14 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/16 04:18:32 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-void	handler(int sig, siginfo_t *info, void *oldsiga)
+static void	handler(int sig, siginfo_t *info, void *oldsiga)
 {
 	if (sig == SIGQUIT)
 		rl_redisplay();
@@ -25,7 +25,7 @@ void	handler(int sig, siginfo_t *info, void *oldsiga)
 	}
 }
 
-void    init_signalaction(void)
+static void	init_signalaction(void)
 {
 	struct sigaction    act;
 
@@ -36,7 +36,7 @@ void    init_signalaction(void)
 	sigaction(SIGQUIT, &act, NULL);
 }
 
-t_setting	*init_set(char **envp)
+static t_setting	*init_set(char **envp)
 {
 	t_setting	*set;
 
@@ -45,6 +45,7 @@ t_setting	*init_set(char **envp)
 		return (NULL);
 	set->exit = 0;
 	init_env(envp, &set);
+	init_history(&set);
 	rl_catch_signals = 0;
 	init_signalaction();
 	return (set);
@@ -66,11 +67,12 @@ int	main(int argc, char **argv, char **envp)
 		input = get_input(&set);
 		if (!input)
 			break ;
-		add_history(input);
+		ft_add_history(input, &set);
 		operation(input, &set);
 		free(input);
 		if (set->exit == 1)
 			break ;
 	}
+	save_history(&set);
 	return (0);
 }

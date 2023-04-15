@@ -6,7 +6,7 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 23:53:34 by hyeondle          #+#    #+#             */
-/*   Updated: 2023/04/15 20:20:40 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/16 04:18:19 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,12 @@ typedef enum e_quote
 	DOUBLE
 }	t_quote;
 
+typedef	struct s_history
+{
+	char				*history;
+	struct s_history	*next;
+}						t_history;
+
 typedef struct s_env
 {
 	char	*key;
@@ -78,12 +84,17 @@ typedef struct s_setting
 	int				child_exit_status;
 	char			**envp;
 	t_env_list		*env_list;
-	struct termios	saved_termios;
-	char			**history;
+	t_history		*s_history;
+	char			**l_history;
 }				t_setting;
 
 /*			actors				*/
 void	operation(char *input, t_setting **set);
+
+/*			history				*/
+void	init_history(t_setting **setting);
+void	ft_add_history(char *input, t_setting **set);
+void	save_history(t_setting **setting);
 
 /*			environment			*/
 void	init_env(char **envp, t_setting **set);
