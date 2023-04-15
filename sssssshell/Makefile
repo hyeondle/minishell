@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+         #
+#    By: Linsio <Linsio@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/14 15:17:23 by hyeondle          #+#    #+#              #
-#    Updated: 2023/04/16 04:21:23 by hyeondle         ###   ########.fr        #
+#    Updated: 2023/04/16 06:17:41 by Linsio           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,9 +76,8 @@ OBJECT			=	$(SOURCE:.c=.o)\
 LIBFT_DIR		=	./libft/
 LIBFT			=	$(LIBFT_DIR)libft.a
 LIBFT_FLAG		=	-L$(LIBFT_DIR) -lft
-READLINE_FLAG	=	-lreadline \
-					-L/goinfre/hyeondle/.brew/opt/readline/lib \
-					-I/goinfre/hyeondle/.brew/opt/readline/include
+
+READLINE_FLAG	=	-lreadline -L/opt/homebrew/Cellar/readline/8.2.1/lib -I/opt/homebrew/Cellar/readline/8.2.1/include
 
 CC				=	cc
 FLAGS			=	-Wall -Wextra -Werror
@@ -86,14 +85,14 @@ RM				=	rm -f
 RM_OBJECT		=	rm -rf $(OBJECT)
 
 .c.o			:
-					$(CC) -g -fsanitize=address -I $(HEADER_DIR) -I/goinfre/hyeondle/.brew/opt/readline/include -c  $< -o $(<:.c=.o)
+					$(CC) -g -fsanitize=address -I $(HEADER_DIR) -I/opt/homebrew/Cellar/readline/8.2.1/include -c  $< -o $(<:.c=.o)
 
 all				:	$(NAME)
 
 $(LIBFT)		:
 					make -C $(LIBFT_DIR)
 
-$(NAME)			:	$(OBJECT) $(LIBFT)
+$(NAME)			:	$(OBJECT) $(LIBFT) $(READLINE)
 					$(CC) -g -fsanitize=address -I $(HEADER_DIR) $(OBJECT) $(READLINE_FLAG) $(LIBFT_FLAG) -o $(NAME)
 
 clean			:
