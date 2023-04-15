@@ -6,7 +6,7 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 23:53:07 by hyeondle          #+#    #+#             */
-/*   Updated: 2023/04/15 20:56:52 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/16 00:06:18 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ int	main(int argc, char **argv, char **envp)
 	char		*input;
 	int			i;
 
+	printf("shellstart\n");
 	set = init_set(envp);
 	if (!set)
 		return (1);
