@@ -6,7 +6,7 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 03:53:58 by hyeondle          #+#    #+#             */
-/*   Updated: 2023/04/16 04:00:31 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/16 04:43:19 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,6 @@ void	init_history(t_setting **setting)
 		i++;
 		set->l_history[i] = get_next_line(fd);
 	}
-	history = (t_history *)malloc(sizeof(t_history));
-	history->history = NULL;
-	history->next = NULL;
-	set->s_history = history;
+	set->s_history = NULL;
 	close(fd);
 }

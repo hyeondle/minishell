@@ -6,7 +6,7 @@
 #    By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/14 15:17:23 by hyeondle          #+#    #+#              #
-#    Updated: 2023/04/16 04:19:10 by hyeondle         ###   ########.fr        #
+#    Updated: 2023/04/16 04:21:23 by hyeondle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -86,7 +86,7 @@ RM				=	rm -f
 RM_OBJECT		=	rm -rf $(OBJECT)
 
 .c.o			:
-					$(CC) -I $(HEADER_DIR) -I/goinfre/hyeondle/.brew/opt/readline/include -c -g -fsanitize=address $< -o $(<:.c=.o)
+					$(CC) -g -fsanitize=address -I $(HEADER_DIR) -I/goinfre/hyeondle/.brew/opt/readline/include -c  $< -o $(<:.c=.o)
 
 all				:	$(NAME)
 
