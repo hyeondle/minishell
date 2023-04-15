@@ -6,7 +6,7 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 01:33:48 by hyeondle          #+#    #+#             */
-/*   Updated: 2023/04/15 20:30:19 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/16 03:03:25 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ char	*get_input(t_setting **set)
 	i = input_check(input);
 	if (i == 1)
 	{
+		input = ft_strjoin(input, "\n");
 		while (i)
 		{
 			input_add = readline("> ");
