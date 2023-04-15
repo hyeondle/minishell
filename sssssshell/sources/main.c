@@ -6,11 +6,76 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 23:53:07 by hyeondle          #+#    #+#             */
-/*   Updated: 2023/04/15 07:15:26 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/15 17:15:37 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
+
+void	handler(int sig, siginfo_t *info, void *oldsiga)
+{
+	if (sig == SIGQUIT)
+	{
+		// rl_replace_line("aa", 1);
+		//rl_on_new_line();
+		printf("test");
+		rl_redisplay();
+	}
+	if (sig == SIGINT)
+	{
+		rl_replace_line("", 1);
+		rl_on_new_line();
+		printf("\n");
+		rl_redisplay();
+	}
+	if (sig == EOF)
+	{
+		printf("test");
+		ft_exit(NULL, NULL);
+	}
+}
+
+void    init_signalaction(void)
+{
+	struct sigaction    act;
+
+	act.sa_flags = SA_SIGINFO;
+	act.sa_sigaction = handler;
+	sigemptyset(&act.sa_mask);
+	sigaction(SIGINT, &act, NULL);
+	sigaction(SIGQUIT, &act, NULL);
+	sigaction(EOF, &act, NULL);
+}
+
+void	init_signalsetting(t_setting **setting)
+{
+	struct termios	new_termios;
+
+	tcgetattr(STDIN_FILENO, &((*setting)->saved_termios));
+	new_termios = (*setting)->saved_termios;
+
+	new_termios.c_lflag &= ~(ICANON);
+	//new_termios.c_cc[VINTR] = _POSIX_VDISABLE;
+	new_termios.c_cc[VQUIT] = _POSIX_VDISABLE;
+
+	tcsetattr(STDIN_FILENO, TCSANOW, &new_termios);
+	// tcsetattr(STDIN_FILENO, TCSANOW, &((*setting)->saved_termios));
+}
+
+t_setting	*init_set(char **envp)
+{
+	t_setting	*set;
+
+	set = (t_setting *)malloc(sizeof(t_setting));
+	if (!set)
+		return (NULL);
+	set->exit = 0;
+	init_env(envp, &set);
+	rl_catch_signals = 0;
+	init_signalsetting(&set);
+	init_signalaction();
+	return (set);
+}
 
 int	main(int argc, char **argv, char **envp)
 {
@@ -18,10 +83,13 @@ int	main(int argc, char **argv, char **envp)
 	char		*input;
 	int			i;
 
-	set = (t_setting *)malloc(sizeof(t_setting));
-	set->exit = 0;
+	set = init_set(envp);
+	if (!set)
+		return (1);
+	// set = (t_setting *)malloc(sizeof(t_setting));
+	// set->exit = 0;
 	i = 0;
-	init_env(envp, &set);
+	// init_env(envp, &set);
 	while (1)
 	{
 		input = get_input();
@@ -34,5 +102,6 @@ int	main(int argc, char **argv, char **envp)
 		if (set->exit == 1)
 			break ;
 	}
+	tcsetattr(STDIN_FILENO, TCSANOW, &(set->saved_termios));
 	return (0);
 }

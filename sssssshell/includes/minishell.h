@@ -6,7 +6,7 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 23:53:34 by hyeondle          #+#    #+#             */
-/*   Updated: 2023/04/15 07:18:25 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/15 17:10:38 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,11 @@ typedef struct s_env_list
 
 typedef struct s_setting
 {
-	int			exit;
-	char		**envp;
-	t_env_list	*env_list;
+	int				exit;
+	char			**envp;
+	t_env_list		*env_list;
+	struct termios	saved_termios;
+	char			**history;
 }				t_setting;
 
 /*			actors				*/
