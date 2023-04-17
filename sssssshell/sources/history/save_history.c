@@ -6,7 +6,7 @@
 /*   By: Linsio <Linsio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 04:12:16 by hyeondle          #+#    #+#             */
-/*   Updated: 2023/04/17 12:17:10 by Linsio           ###   ########.fr       */
+/*   Updated: 2023/04/17 15:49:27 by Linsio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,16 @@ static void	save_s_hist(int fd, t_history *s_hist)
 	temp = s_hist;
 	while (temp->next != NULL && temp->history != NULL)// 현재 ctrl+d 입력처리 미흡. 수정 요망, 줄개행만 있으면 추가 x
 	{
+		// if (ft_strcmp(temp->history, ""))
+		// {
+		// 	temp = temp->next;
+		// 	continue ;
+		// }
 		write(fd, temp->history, ft_strlen(temp->history));
 		write(fd, "\n", 1);
 		temp = temp->next;
 	}
+	write(fd, temp->history, ft_strlen(temp->history));
 }
 
 void	save_history(t_setting **setting)
