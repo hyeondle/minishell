@@ -3,14 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   save_history.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Linsio <Linsio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 04:12:16 by hyeondle          #+#    #+#             */
-/*   Updated: 2023/04/16 05:04:23 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/17 10:28:26 by Linsio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
+
+static void	save_l_hist(int fd, t_history *l_hist)
+{
+	t_history	*temp;
+
+	temp = l_hist;
+	while (temp->next != NULL)
+	{
+		write(fd, temp->history, ft_strlen(temp->history));
+		write(fd, "\n", 2);
+		temp = temp->next;
+	}
+}
+
+static void	save_s_hist(int fd, t_history *s_hist)
+{
+	t_history	*temp;
+
+	temp = s_hist;
+	while (temp->next != NULL)
+	{
+		write(fd, temp->history, ft_strlen(temp->history));
+		write(fd, "\n", 2);
+		temp = temp->next;
+	}
+}
 
 void	save_history(t_setting **setting)
 {
@@ -26,12 +52,7 @@ void	save_history(t_setting **setting)
 	}
 	i = 0;
 	set = *setting;
-	while (set->s_history->next != NULL)
-	{
-		write(fd, set->s_history->history, ft_strlen(set->s_history->history));
-		write(fd, "\n", 2);
-		set->s_history = set->s_history->next;
-		i++;
-	}
+	save_l_hist(fd, set->l_history);
+	save_s_hist(fd, set->s_history);
 	close(fd);
 }
