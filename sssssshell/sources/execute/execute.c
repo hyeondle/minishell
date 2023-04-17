@@ -6,13 +6,12 @@
 /*   By: Linsio <Linsio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 11:43:19 by Linsio            #+#    #+#             */
-/*   Updated: 2023/04/17 16:06:04 by Linsio           ###   ########.fr       */
+/*   Updated: 2023/04/17 16:12:46 by Linsio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 //각종 에러 및 예외 처리 할 것, 빌트인 안이 아니면 execute실행하도록 함수 하나 더 추가
-// "./*"로 실행하는 명령어에서 에러 발생. 해당 에러 처리 필요함.
 static char	*get_path(char **inputs, t_setting **set, char **e_path)
 {
 	int		i;
