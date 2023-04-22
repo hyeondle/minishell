@@ -6,7 +6,7 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 01:33:48 by hyeondle          #+#    #+#             */
-/*   Updated: 2023/04/16 03:03:25 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/22 20:18:55 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ char	*get_input(t_setting **set)
 	if (!input)
 	{
 		ft_exit(NULL, set);
-		return (NULL);
 	}
 	i = input_check(input);
 	if (i == 1)

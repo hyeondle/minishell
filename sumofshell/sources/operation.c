@@ -6,7 +6,7 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 02:03:12 by hyeondle          #+#    #+#             */
-/*   Updated: 2023/04/22 18:20:49 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/22 20:02:56 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@ void	operation(char *input, t_setting **set)
 	i = 0;
 	tokenized_str = shell_split(input);
 	tokenized_str = split_by_token(tokenized_str);
+	while (tokenized_str[i])
+	{
+		printf("%d : %s%c\n", i, tokenized_str[i], '$');
+		i++;
+	}
 	while (tokenized_str[i])
 	{
 		tokenized_str[i] = get_env_to_str(set, tokenized_str[i]);
