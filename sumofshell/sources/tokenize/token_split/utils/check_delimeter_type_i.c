@@ -6,7 +6,7 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 08:54:04 by hyeondle          #+#    #+#             */
-/*   Updated: 2023/04/22 20:10:11 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/22 20:43:14 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	check_delimeter_type_i(char	*str)
 			while (str[i] != '\"')
 				i++;
 		}
-		if (token_check(str, i))
+		if (token_check(str[i]))
 			return (i);
 		i++;
 	}

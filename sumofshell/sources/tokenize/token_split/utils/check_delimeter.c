@@ -6,7 +6,7 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 08:53:22 by hyeondle          #+#    #+#             */
-/*   Updated: 2023/04/22 20:09:26 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/22 20:43:06 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int	del_size(char *str, int i, int size)
 				i++;
 			i++;
 		}
-		if (token_check(str, i) && str[i] != '\0')
+		if (token_check(str[i]) && str[i] != '\0')
 			size++;
 		if (str[i] != '\0')
 			i++;

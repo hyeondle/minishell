@@ -6,7 +6,7 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 23:53:34 by hyeondle          #+#    #+#             */
-/*   Updated: 2023/04/22 20:09:27 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/22 20:44:15 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,7 +143,7 @@ char	**token_split_case_no_back(char **str, int i, int k);
 char	**token_split_case_no_front(char **str, int i, int k);
 //			token split utils	//
 int		split_case_index_check(char **str, int i, int k);
-int		token_check(char *c, int i);
+int		token_check(char c);
 int		check_delimeter(char *str);
 int		check_delimeter_type_i(char	*str);
 size_t	dtab_size(char **str);
