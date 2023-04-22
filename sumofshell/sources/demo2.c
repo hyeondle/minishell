@@ -164,6 +164,8 @@ t_bool	exec(char **cmd_args, char **envp, t_setting **set)
 {
 	char	*cmd_with_path;
 
+	if (!cmd_args[0])
+		return (FALSE);
 	if (execute_check(cmd_args[0]))
 	{
 		go_execute(cmd_args, set, cmd_args[0]);
