@@ -6,7 +6,7 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 01:40:58 by hyeondle          #+#    #+#             */
-/*   Updated: 2023/04/08 01:59:44 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/24 09:54:30 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int	input_check(char *input)
 
 	quote = NONE;
 	i = 0;
+	if (!input)
+		return 0;
 	while (input[i])
 	{
 		if (quote == NONE)

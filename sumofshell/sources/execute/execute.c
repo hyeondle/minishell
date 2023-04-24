@@ -6,7 +6,7 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 11:43:19 by Linsio            #+#    #+#             */
-/*   Updated: 2023/04/22 18:58:30 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/24 09:54:31 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,10 @@ int	execute(char **inputs, t_setting **set)
 	// 	flag = go_execute(inputs, set, o);
 	// else
 	// {
-	test_ft(inputs, (*set)->envp, set);
+	if (ft_strcmp(o, "exit") == 0)
+		ft_exit(inputs, set);
+	else
+		test_ft(inputs, (*set)->envp, set);
 	// }
 	return ((*set)->child_exit_status);
 }
