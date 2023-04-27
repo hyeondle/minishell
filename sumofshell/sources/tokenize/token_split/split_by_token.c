@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   split_by_token.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Linsio <Linsio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 08:49:06 by hyeondle          #+#    #+#             */
-/*   Updated: 2023/04/22 17:50:09 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/27 15:03:14 by Linsio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,12 @@ char	**split_by_token(char **str)
 		if (check_delimeter(temp_2[i]))
 		{
 			k = check_delimeter_type_i(temp_2[i]);
+			if (temp_2[k + 1] != '\0' && token_check(temp_2[k + 1]) == 1)
+			{
+				temp_2 = over_2_delims(temp_2); //check continues delimeters & seperate whole things
+				c = over_2_delims_i(temp_2);
+				i = i + c;
+			}
 			c = split_case_index_check(temp_2, i, k);
 			temp_2 = split_by_case(temp_2, i, k);
 			i = i + c;
