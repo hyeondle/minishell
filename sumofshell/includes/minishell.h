@@ -6,7 +6,7 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 23:53:34 by hyeondle          #+#    #+#             */
-/*   Updated: 2023/04/24 09:54:10 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/28 15:02:52 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,11 +136,15 @@ size_t	new_strlen_m(char *str, size_t k);
 //			token split			//
 char	**split_by_token(char **str);
 char	**split_by_case(char **str, int i, int k);
+char	**over_2_delims(char **str, int i, int k);
 //			case				//
 char	**go_split(char **str, int i, int k);
 char	**token_split_case_alone(char **str, int i, int k);
 char	**token_split_case_no_back(char **str, int i, int k);
 char	**token_split_case_no_front(char **str, int i, int k);
+char	**go_split_over_delim(char **str, int i, int k, int j);
+char	**token_split_case_no_back_over_delim(char **str, int i, int k, int j);
+char	**token_split_case_no_front_over_delim(char **str, int i, int k, int j);
 //			token split utils	//
 int		split_case_index_check(char **str, int i, int k);
 int		token_check(char c);
@@ -148,7 +152,8 @@ int		check_delimeter(char *str);
 int		check_delimeter_type_i(char	*str);
 size_t	dtab_size(char **str);
 char	*deli_char(char c);
-
+char	*deli_char_over_delim(char c, int i, int j);
+int		over_2_delims_i(char **str, int i, int k);
 /*			builtins			*/
 int		ft_echo(char **inputs);
 int		ft_env(char **envp);

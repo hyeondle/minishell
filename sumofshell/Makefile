@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: Linsio <Linsio@student.42.fr>              +#+  +:+       +#+         #
+#    By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/14 15:17:23 by hyeondle          #+#    #+#              #
-#    Updated: 2023/04/27 13:14:22 by Linsio           ###   ########.fr        #
+#    Updated: 2023/04/28 15:06:37 by hyeondle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,6 @@ SOURCES			=	main.c\
 					tokenize/token_split/utils/split_case_index_check.c\
 					tokenize/token_split/utils/token_check.c\
 					tokenize/token_split/case/go_split.c\
-					tokenize/token_split/case/token_split_case_alone.c\
 					tokenize/token_split/case/token_split_case_no_back.c\
 					tokenize/token_split/case/token_split_case_no_front.c
 
@@ -68,6 +67,12 @@ SOURCES_MAKING	=	execute/execute.c\
 					history/init_history.c\
 					history/save_history.c\
 					demo2.c\
+					tokenize/token_split/case/go_split_over_delim.c\
+					tokenize/token_split/case/token_split_case_no_back_over_delim.c\
+					tokenize/token_split/case/token_split_case_no_front_over_delim.c\
+					tokenize/token_split/utils/deli_char_over_delim.c\
+					tokenize/token_split/sep_by_delims.c\
+					tokenize/token_split/utils/over_2_delims_i.c\
 
 SOURCE			=	$(addprefix $(SOURCE_DIR), $(SOURCES))
 SOURCE_N		=	$(addprefix $(SOURCE_DIR), $(SOURCES_MAKING))
@@ -78,7 +83,7 @@ LIBFT_DIR		=	./libft/
 LIBFT			=	$(LIBFT_DIR)libft.a
 LIBFT_FLAG		=	-L$(LIBFT_DIR) -lft
 
-READLINE_FLAG	=	-lreadline -L/opt/homebrew/opt/readline/lib -I/opt/homebrew/opt/readline/include
+READLINE_FLAG	=	-lreadline -L/goinfre/hyeondle/.brew/opt/readline/lib -I/goinfre/hyeondle/.brew/opt/readline/include
 
 CC				=	cc
 FLAGS			=	-Wall -Wextra -Werror
@@ -86,7 +91,7 @@ RM				=	rm -f
 RM_OBJECT		=	rm -rf $(OBJECT)
 
 .c.o			:
-					$(CC) -g -fsanitize=address -I $(HEADER_DIR) -I/opt/homebrew/opt/readline/include -c  $< -o $(<:.c=.o)
+					$(CC) -g -fsanitize=address -I $(HEADER_DIR) -I/goinfre/hyeondle/.brew/opt/readline/include -c  $< -o $(<:.c=.o)
 
 all				:	$(NAME)
 
