@@ -6,7 +6,7 @@
 #    By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/14 15:17:23 by hyeondle          #+#    #+#              #
-#    Updated: 2023/04/28 15:06:37 by hyeondle         ###   ########.fr        #
+#    Updated: 2023/04/28 17:54:17 by hyeondle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,6 +73,7 @@ SOURCES_MAKING	=	execute/execute.c\
 					tokenize/token_split/utils/deli_char_over_delim.c\
 					tokenize/token_split/sep_by_delims.c\
 					tokenize/token_split/utils/over_2_delims_i.c\
+					environment/convert_env_to_str/convertion.c\
 
 SOURCE			=	$(addprefix $(SOURCE_DIR), $(SOURCES))
 SOURCE_N		=	$(addprefix $(SOURCE_DIR), $(SOURCES_MAKING))
