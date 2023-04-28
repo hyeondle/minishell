@@ -6,7 +6,7 @@
 /*   By: hyeondle <hyeondle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 02:03:12 by hyeondle          #+#    #+#             */
-/*   Updated: 2023/04/28 19:22:51 by hyeondle         ###   ########.fr       */
+/*   Updated: 2023/04/28 20:14:49 by hyeondle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,28 @@ void	operation(char *input, t_setting **set)
 	int		i;
 
 	i = 0;
+	// tokenized_str = shell_split(input);
+	// tokenized_str = split_by_token(tokenized_str);
+	// while (tokenized_str[i])
+	// {
+	// 	tokenized_str[i] = convertion(set, tokenized_str[i]);
+	// 	i++;
+	// }
+	// i = 0;
+	// while (tokenized_str[i])
+	// {
+	// 	tokenized_str[i] = del_quotes(set, tokenized_str[i]);
+	// 	i++;
+	// }
+	input = convertion(set, input);
 	tokenized_str = shell_split(input);
 	tokenized_str = split_by_token(tokenized_str);
-	while (tokenized_str[i])
-	{
-		tokenized_str[i] = convertion(set, tokenized_str[i]);
-		i++;
-	}
+	// i = 0;
+	// while (tokenized_str[i])
+	// {
+	// 	tokenized_str[i] = convertion(set, tokenized_str[i]);
+	// 	i++;
+	// }
 	i = 0;
 	while (tokenized_str[i])
 	{
